@@ -203,7 +203,7 @@ def get_playlist_tracks(playlist_id):
     # https://developer.spotify.com/documentation/web-api/reference/get-playlists-tracks
     return fetch_web_api(
         f'v1/playlists/{playlist_id}/tracks',
-        ''
+        'GET'
     )['items']
 
 

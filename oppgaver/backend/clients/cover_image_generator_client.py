@@ -20,7 +20,8 @@ class CoverImageGeneratorClient:
             }
             # TODO: 2.1 Fullfør payload med nødvendige parametere: "model": "gpt-image-1" og "prompt": med prompt-parameteren
             payload = {
-                "prompt": "",# Placeholder, skal erstattes med prompt-parameteren
+                "prompt": prompt,
+                "model": "gpt-image-1",
                 "size": "1024x1024",
                 "quality": "medium",
                 "output_compression": 100,
@@ -30,9 +31,9 @@ class CoverImageGeneratorClient:
             
             # TODO: 2.1 Fullfør API-kallet: send til self.endpoint med payload i json-body           
             response = requests.post(
-                "", #Hvor skal vi sende requesten? Hint: kanskje i self?
+                self.endpoint,
                 headers=headers,
-                json="", #Hva skal vi sende i body? Hint: kanskje noe vi allerede har laget?
+                json=payload,
                 timeout=60
             )
             result = response.json()
